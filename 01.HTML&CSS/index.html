@@ -3,66 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Soy Henry</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" href="../build/css/reset.css" />
   </head>
 
   <body>
-    <header>
-      <img src="../build/assets/img/HEN-Logo.png" alt="" />
+    <!-- Header -->
+    <header class="header">
+      <img hr src="../build/assets/img/HEN-Logo.png" alt="" />
       <div>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li>
-            <a href="../build/html/generarContrasena.html"
-              >Generar Contraseña</a
-            >
-          </li>
-          <li><a href="../build/html/cajaFuerte.html">Caja Fuerte</a></li>
-          <li>
-            <a href="../build/html/monitoreoActividad.html"
-              >Monitoreo de Actividad</a
-            >
-          </li>
-          <li>
-            <a href="../build/html/gestionUsuarios.html">Gestion de Usuarios</a>
-          </li>
-        </ul>
+        <nav>
+          <ul class="ul">
+            <li><a href="./index.html">Home</a></li>
+            <li>
+              <a href="../build/html/generarContrasena.html"
+                >Generar Contraseña</a
+              >
+            </li>
+            <li><a href="../build/html/cajaFuerte.html">Caja Fuerte</a></li>
+            <li>
+              <a href="../build/html/monitoreoActividad.html"
+                >Monitoreo de Actividad</a
+              >
+            </li>
+            <li>
+              <a href="../build/html/gestionUsuarios.html"
+                >Gestion de Usuarios</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
+    <!-- Fin header -->
+    <!-- Main -->
     <main>
-      <section>
-        <article>
-          <h2>Seguridad personalizada y efectiva</h2>
-          <h1>Henry Security SAS</h1>
-          <p>Protegemos tus datos, impulsamos tu confianza.</p>
-        </article>
-      </section>
-      <aside>
-        <img src="./assets/ImagenPrincipal.png" alt="" />
-      </aside>
-
-      <section>
-        <form>
-          <div>
-            <label for="Nombre"></label>
-            <input type="text" name="Nombre" placeholder="Nombre" />
-          </div>
-          <div>
-            <label for="Apellido"></label>
-            <input type="text" name="Apellido" placeholder="Apellido" />
-          </div>
-          <div>
-            <label for="Edad"></label>
-            <input type="number" name="Edad" placeholder="Edad" />
-          </div>
-          <div>
-            <label for="Contraseña"></label>
-            <input type="password" name="Contraseña" placeholder="Contraseña" />
-          </div>
-          <button>Enviar</button>
-        </form>
+      <section class="MainContenedor">
+        <div class="DivMain">
+          <h2 class="mainSubtitulo">Seguridad personalizada y efectiva</h2>
+          <article>
+            <h1>Henry <span>Security SAS</span></h1>
+            <p class="ParrafoMain">Protegemos tus datos, impulsamos tu confianza.</p>
+          </article>
+        </div>
+        <aside>
+          <img src="./assets/ImagenPrincipal.png" alt="" />
+        </aside>
       </section>
     </main>
+    <!-- Fin main -->
+    <!-- Footer -->
     <footer>
       <h4>Derechos Reservados</h4>
       <div>
