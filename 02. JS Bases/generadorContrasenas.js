@@ -39,73 +39,14 @@ function generarContrasena(
 
   var contrasena = "";
 
-  if (longitud >= 3) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 4) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 5) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 6) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 7) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 8) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 9) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
-  }
-  if (longitud >= 10) {
-    var indiceAleatorio = Math.floor(
-      Math.random() * caracteresDisponibles.length
-    );
-    var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
-    contrasena += CaracterAleatorio;
+  for (let i = 0; i < longitud; i++) {
+    if (longitud >= 3) {
+      var indiceAleatorio = Math.floor(
+        Math.random() * caracteresDisponibles.length
+      );
+      var CaracterAleatorio = caracteresDisponibles.charAt(indiceAleatorio);
+      contrasena += CaracterAleatorio;
+    }
   }
 
   return "Contraseña generada: " + contrasena;
