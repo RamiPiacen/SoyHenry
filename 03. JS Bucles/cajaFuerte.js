@@ -16,7 +16,7 @@ function cajaFuerte(codigoSecreto, cantidadIntentos) {
   if (!cantidadIntentos || cantidadIntentos < 1 || cantidadIntentos > 5) {
     return "Solo se permite una cantidad de intentos mayor a 0 y menor a 6";
   }
-  return codigoSecreto.toString + cantidadIntentos.toString;
+  return codigoSecreto.toString() + cantidadIntentos.toString();
 }
 
 function validarNumerosRepetidos(codigo) {
@@ -51,11 +51,14 @@ function desbloquearCajaFuerte(
   if (codigoDesbloqueo.length != 4) {
     return "El codigo debe tener exactamente 4 digitos";
   }
-  SoloValidarNumeros(codigoDesbloqueo);
-  if (validarNumerosRepetidos(codigoSecreto)) {
+  for (let i = 0; i < codigoDesbloqueo.length; i++) {
+    if (isNaN(codigoDesbloqueo[i]))
+      return "El codigo de desbloqueo solo puede estar conformado por numeros";
+  }
+  if (validarNumerosRepetidos(codigoDesbloqueo)) {
     return "el codigo no puede tener numeros repetidos";
   }
-  if (codigoDesbloqueo === codigoDesbloqueo) {
+  if (codigoDesbloqueo === codigoSecreto) {
     return "Acceso concedido despues de :" + contadorIntentos + " intentos";
   } else {
     switch (true) {
