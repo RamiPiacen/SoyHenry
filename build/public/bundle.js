@@ -78,12 +78,11 @@ module.exports = {
 
 function cajaFuerte(codigoSecreto, cantidadIntentos) {
   /* TU CODIGO */
-  if (!codigoSecreto || codigoSecreto.length != 4) {
+  if (!codigoSecreto || codigoSecreto.length !== 4) {
     return "El codigo debe tener exactamente 4 digitos";
   }
   for (let i = 0; i < codigoSecreto.length; i++) {
     let char = codigoSecreto[i];
-
     if (!Number(char) || Number(char) === 0) {
       return "El codigo secreto solo puede estar conformado por numeros";
     }
@@ -106,22 +105,26 @@ function validarNumerosRepetidos(codigo) {
         return true;
       }
     }
-    return false;
   }
+  return false;
 }
 function SoloValidarNumeros(codigo) {
   for (let i = 0; i < codigo.length; i++) {
     let char = codigo[i];
-  }
-  if (!Number(char) || Number(char) === 0) {
-    return "El codigo secreto solo puede estar conformado por numeros";
+    if (!Number(char) || Number(char) === 0) {
+      return "El codigo secreto solo puede estar conformado por numeros";
+    }
   }
 }
 
 // <------- Contador de intentos -----> no modific
 var contadorIntentos = 1;
 
-function desbloquearCajaFuerte(codigoSecreto,cantidadIntentos,codigoDesbloqueo) {
+function desbloquearCajaFuerte(
+  codigoSecreto,
+  cantidadIntentos,
+  codigoDesbloqueo
+) {
   /* TU CODIGO */
   if (codigoDesbloqueo.length != 4) {
     return "El codigo debe tener exactamente 4 digitos";
@@ -146,9 +149,9 @@ function desbloquearCajaFuerte(codigoSecreto,cantidadIntentos,codigoDesbloqueo) 
     }
   }
 
-  contadorIntentos++
-  if(contadorIntentos > cantidadIntentos){
-    return "Acceso denegado. Se agotaron los intentos"
+  contadorIntentos++;
+  if (contadorIntentos > cantidadIntentos) {
+    return "Acceso denegado. Se agotaron los intentos";
   }
 }
 
@@ -165,26 +168,69 @@ module.exports = { cajaFuerte, desbloquearCajaFuerte, validarNumerosRepetidos };
 /***/ ((module) => {
 
 // <------- Arreglo de actividades sospechozas -----> modificar el valor de ser necesario
-var actividadesSospechozas = null
+var actividadesSospechozas = [];
 
-function agregarActividad(descripcion, nivelRiesgo){
-    /* TU CODIGO */
-    
+function agregarActividad(descripcion, nivelRiesgo) {
+  /* TU CODIGO */
+  if (!descripcion || !nivelRiesgo) {
+    return "Descripcion o nivel de riesgo no valido";
+  }
+  if (
+    nivelRiesgo !== "bajo" &&
+    nivelRiesgo !== "medio" &&
+    nivelRiesgo !== "alto"
+  ) {
+    return "Nivel de riesgo no valido, el nivel debe ser: bajo, medio o alto";
+  }
+  actividadesSospechozas.push(
+    "Descripcion: " + descripcion + ", Riesgo- " + nivelRiesgo
+  );
+  return (
+    "Actividad: " +
+    descripcion +
+    " con Nivel de riesgo: " +
+    nivelRiesgo +
+    " fue agregada con exito"
+  );
 }
 
-function eliminarActividad(indice){
-    /* TU CODIGO */
-    
+function eliminarActividad(indice) {
+  /* TU CODIGO */
+  if (isNaN(indice)) return "El indice no es valido, debe ser un numero";
+  if (indice < 0 || indice >= actividadesSospechozas.length) {
+    return "El indice no es valido, se encuentra fuera del rango";
+  }
+  actividadesSospechozas.splice(indice, 1);
+  return "Actividad eliminada con exito";
 }
 
-function filtrarActividadesPorRiesgo(nivelRiesgo){
-    /* TU CODIGO */
-    
+function filtrarActividadesPorRiesgo(nivelRiesgo) {
+  /* TU CODIGO */
+  if (!nivelRiesgo) {
+    return "Nivel de riesgo no valido";
+  }
+  if (
+    nivelRiesgo !== "bajo" &&
+    nivelRiesgo !== "medio" &&
+    nivelRiesgo !== "alto"
+  ) {
+    return "Nivel de riesgo no valido, el nivel debe ser: bajo, medio o alto";
+  }
+
+  let arrayNuevo = actividadesSospechozas.filter(function (actividad) {
+    if (actividad.includes(nivelRiesgo)) return actividad;
+  });
+  if (arrayNuevo.length > 0) return arrayNuevo;
+  return "No hay actividades con este nivel de riesgo";
 }
 
-function generarReporteDeActividades(){
-    /* TU CODIGO */
-    
+function generarReporteDeActividades() {
+  /* TU CODIGO */
+  var arrayNuevo = actividadesSospechozas.map(function (actividad, indice) {
+    return `Id: ${indice}, ${actividad}`;
+  });
+  if (arrayNuevo.length > 0) return arrayNuevo;
+  return "No hay actividades para mostrar";
 }
 
 // <------- NO TOCAR -------->
@@ -192,12 +238,8 @@ module.exports = {
   agregarActividad,
   eliminarActividad,
   filtrarActividadesPorRiesgo,
-  generarReporteDeActividades
-}
-
-
-
-
+  generarReporteDeActividades,
+};
 
 
 /***/ }),
